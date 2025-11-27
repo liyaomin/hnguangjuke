@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖南光聚客网络科技有限公司 - 光聚客</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #003366;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0052a3;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* 新增：优势板块样式 */
+        .features {
+            background: var(--white);
+            padding-bottom: 40px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .feature-item {
+            padding: 30px 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .feature-item:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+        .feature-item h3 {
+            margin: 15px 0 10px;
+            color: var(--secondary-color);
+        }
+        .feature-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 新增：服务流程样式 */
+        .process {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+        .process .section-title h2 {
+            color: var(--white);
+        }
+        .process .section-title .line {
+            background: var(--white);
+        }
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            position: relative;
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+            position: relative;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        .step-num {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            line-height: 60px;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255,255,255,0.2);
+        }
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .step p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <!-- 使用更专业的占位Logo图片 -->
+                    <img src="https://ui-avatars.com/api/?name=光聚客&background=0066cc&color=fff&size=128&font-size=0.4" alt="光聚客Logo">
+                    光聚客
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#features">核心优势</a></li> <!-- 新增导航 -->
+                    <li><a href="#services">核心业务</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>科技赋能 · 聚客天下</h1>
+            <p>湖南光聚客网络科技有限公司致力于为企业提供数字化转型解决方案</p>
+            <a href="#contact" class="btn">立即咨询</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于光聚客</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>创新驱动发展的互联网科技企业</h3>
+                    <br>
+                    <p>湖南光聚客网络科技有限公司（简称“光聚客”）坐落于美丽的星城长沙，位于岳麓区梅溪湖核心商圈。作为一家新兴的科技互联网公司，我们专注于利用前沿技术为客户创造价值。</p>
+                    <br>
+                    <p>我们拥有一支充满激情与创造力的技术团队，致力于软件开发、大数据分析、移动互联网应用及企业数字化解决方案。光聚客始终秉承“客户至上，技术领先”的经营理念，助力企业在数字经济浪潮中乘风破浪。</p>
+                </div>
+                <div class="about-img">
+                    <!-- 使用办公环境占位图 -->
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="公司环境">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：核心优势 Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择光聚客</h2>
+                <div class="line"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>专业技术团队</h3>
+                    <p>拥有多年互联网开发经验的技术专家，保障项目高质量交付。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>一站式解决方案</h3>
+                    <p>从需求分析、设计开发到运维推广，提供全生命周期服务。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>快速响应机制</h3>
+                    <p>7x24小时售后支持，快速响应客户需求，解决后顾之忧。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>高性价比服务</h3>
+                    <p>合理的报价体系，用最优的成本为客户创造最大的价值。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心业务</h2>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>高端网站定制</h3>
+                    <p>提供企业官网、品牌网站、营销型网站的全案策划与开发，打造独特的品牌形象。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>移动应用开发</h3>
+                    <p>iOS/Android APP原生开发及微信小程序、H5轻应用开发，覆盖全终端场景。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>云服务与运维</h3>
+                    <p>提供服务器部署、云端架构设计及7x24小时安全运维服务，保障业务稳定运行。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>数字化解决方案</h3>
+                    <p>基于大数据的行业解决方案，帮助企业实现业务流程数字化、智能化升级。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：服务流程 Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <div class="line"></div>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>需求沟通</h3>
+                    <p>深入了解业务需求</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>方案策划</h3>
+                    <p>制定详细实施方案</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>视觉设计</h3>
+                    <p>打造极致用户体验</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h3>程序开发</h3>
+                    <p>规范代码高效开发</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <h3>测试上线</h3>
+                    <p>严格测试确保稳定</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <div class="line"></div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📍</i>
+                    <div class="contact-details">
+                        <h3>公司地址</h3>
+                        <p>湖南省长沙市岳麓区梅溪湖街道<br>嘉顺社区听雨路429号熙望大厦605室</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i>📞</i>
+                    <div class="contact-details">
+                        <h3>联系电话</h3>
+                        <p>19299467077</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i>✉️</i>
+                    <div class="contact-details">
+                        <h3>电子邮箱</h3>
+                        <p>guangjuke@hnguangjuke.asia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2>湖南光聚客网络科技有限公司</h2>
+                <p>Hunan Guangjuke Network Technology Co., Ltd.</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 光聚客 版权所有 | 技术支持：光聚客研发中心</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
